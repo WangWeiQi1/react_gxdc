@@ -50,7 +50,7 @@ class Buttons extends Component {
 					<Button shape="circle" loading={this.state.loading}></Button>
 					<Button type="primary" onClick={(e) => {this.handleClose(e)}}>关闭</Button>
 				</Card>
-				<Card title="按钮组">
+				<Card title="按钮组" style={{marginBottom: "10px"}}>
 					<Button.Group>
 						<Button type="primary" icon="left">返回</Button>
 						<Button type="primary" icon="right">前进</Button>

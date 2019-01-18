@@ -72,7 +72,7 @@ const menuList = [{
 	title: '车辆地图',
 	key: '/bikeMap'
 }, {
-	title: '图标',
+	title: '图形',
 	key: '/charts',
 	children: [{
 		title: '柱形图',

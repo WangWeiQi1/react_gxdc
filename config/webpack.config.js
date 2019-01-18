@@ -110,7 +110,7 @@ module.exports = function(webpackEnv) {
       }
       if (preProcessor === "less-loader") {
         loader.options.modifyVars = {
-          'primary-color': '#FFF68F',
+          'primary-color': '#1890ff',
         }
         loader.options.javascriptEnabled = true
       }
