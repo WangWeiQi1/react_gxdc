@@ -10,9 +10,14 @@ import {
 
 import axios from '../../axios/index'
 
+import Utils from '../../utils/utils'
+
 export default class BasicTable extends React.Component {
 	state = {
 		dataSource2: []
+	}
+	params = {
+		page: 1
 	}
 	componentDidMount() {
 		const dataSource = [{
@@ -52,22 +57,27 @@ export default class BasicTable extends React.Component {
 		this.request();
 	}
 	request = () => {
+		console.log(this.params.page)
 		axios.ajax({
 			url: '/table/list',
 			data: {
 				params: {
-					page: 1
+					page: this.params.page
 				}
 			}
 		}).then((res) => {
 			if (res.code === 0) {
-				res.result.map((item, index) => {
+				res.result.list.map((item, index) => {
 					return item.key = index;
 				})
 				this.setState({
-					dataSource2: res.result,
+					dataSource2: res.result.list,
 					selectedRowKeys: [],
-					selectRows: null
+					selectRows: null,
+					pagination: Utils.pagination(res, (current) => {
+						this.params.page = current;
+						this.request();
+					})
 				})
 			}
 		})
@@ -213,6 +223,15 @@ export default class BasicTable extends React.Component {
 						columns={columns} 
 						dataSource={this.state.dataSource2}
 						pagination={false}
+					/>
+				</Card>
+				<Card title="Mock-表格分页" style={{margin: "10px 0"}}>
+					<Table 
+						bordered
+						rowSelection={rowCheckSelection}
+						columns={columns} 
+						dataSource={this.state.dataSource2}
+						pagination={this.state.pagination}
 					/>
 				</Card>
 			</div>

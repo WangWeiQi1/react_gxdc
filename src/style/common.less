@@ -1,5 +1,16 @@
 @import './default.less';
 @import './loading.less';
+ul,li {
+	list-style: none;
+}
+.clearfix {
+	&::after {
+		display: block;
+		content: "";
+		clear: both;
+		visibility: hidden;
+	}
+}
 .container {
 	display: flex;
 	.navLeft {
@@ -17,6 +28,14 @@
 	.content {
 		position: relative;
 		padding: 20px;
+	}
+}
+.contentWrap {
+	background: #fff;
+	border: 1px solid #e8e8e8;
+	margin-top: -3px;
+	.ant-table-wrapper {
+		margin: 0 -2px 0 -1px;
 	}
 }
 

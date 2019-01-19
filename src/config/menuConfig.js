@@ -57,13 +57,13 @@ const menuList = [{
 	key: '/admin/city'
 }, {
 	title: '订单管理',
-	key: '/order',
+	key: '/admin/order',
 	btnList: [{
 		title: '订单详情',
-		key: 'detail'
+		key: '/order/detail'
 	}, {
 		title: '结束订单',
-		key: 'finish'
+		key: '/order/finish'
 	}]
 }, {
 	title: '员工管理',
