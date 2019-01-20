@@ -27,11 +27,19 @@ import City from './pages/city/index'
 import Order from './pages/order/index'
 import Common from './common'
 import OrderDetail from './pages/order/detail'
+import BikeMap from './pages/map/bikeMap'
+
+import {
+	Provider
+} from 'react-redux'
+
+import store from './store'
 
 export default class IRouter extends React.Component {
 	render() {
 		return (
-			<Router>
+			<Provider store={store}>
+				<Router>
            		<App>
            			<Route path="/login" component={Login} />
            			<Route path="/admin" render={() => 
@@ -51,6 +59,7 @@ export default class IRouter extends React.Component {
 								<Route path="/admin/table/high" component={HighTable} />
 								<Route path="/admin/city" component={City} />
 								<Route path="/admin/order" component={Order} />
+								<Route path="/admin/bikeMap" component={BikeMap} />
 								<Route component={NoMatch} />
 							</Switch>
 						</Admin>
@@ -63,6 +72,7 @@ export default class IRouter extends React.Component {
            			/>
            		</App>
            	</Router>
+			</Provider>
 		)
 	}
 }

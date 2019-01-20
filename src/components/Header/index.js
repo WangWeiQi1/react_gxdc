@@ -9,8 +9,13 @@ import './index.less'
 import Utils from '../../utils/utils'
 import axios from '../../axios'
 
+import {
+	connect
+} from 'react-redux'
+
 class Header extends Component {
-	componentWillMount() {
+	state = {}
+	componentDidMount() {
 		this.setState({
 			username: 'wwq'
 		})
@@ -38,6 +43,7 @@ class Header extends Component {
 	}
 	render() {
 		const menuType = this.props.menuType;
+		let menuName = sessionStorage.getItem('menuName');
 		return (
 			<div className="header">
 				<Row className="headerTop">
@@ -57,7 +63,7 @@ class Header extends Component {
 					menuType ? '' :
 					<Row className="breadcrumb">
 						<Col span={4} className="breadcrumbTitle">
-							首页
+							{menuName}
 						</Col>
 						<Col span={20} className="weather">
 							<span className="date">{this.state.sysTime}</span>
@@ -73,4 +79,4 @@ class Header extends Component {
 	}
 }
 
-export default Header;
+export default connect()(Header);

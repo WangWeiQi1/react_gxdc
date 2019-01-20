@@ -70,7 +70,7 @@ const menuList = [{
 	key: '/user'
 }, {
 	title: '车辆地图',
-	key: '/bikeMap'
+	key: '/admin/bikeMap'
 }, {
 	title: '图形',
 	key: '/charts',
